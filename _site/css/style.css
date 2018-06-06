@@ -251,9 +251,7 @@ blockquote {
 pre,
 code {
   font-size: 16px;
-  border: 1px solid;
-  border-color: #e8e8e8;
-  background-color: #f8f8f8;
+  background-color: #F6F8FA;
   border-radius: 3px;
   font-family: monospace; }
 

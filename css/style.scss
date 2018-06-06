@@ -4,7 +4,7 @@
 @charset "utf-8";
 
 // Adjustments.
-$code-color: #f8f8f8;
+$code-color: #F6F8FA;
 $link-color: #d14;
 $l-grey-color:       #828282;
 $l-grey-color-light: lighten($l-grey-color, 40%);
@@ -183,8 +183,8 @@ blockquote {
 pre,
 code {
     font-size: 16px;
-    border: 1px solid;
-    border-color: $l-grey-color-light;
+    // border: 1px solid;
+    // border-color: $l-grey-color-light;
     background-color: $code-color;
     border-radius: 3px;
     font-family: monospace
@@ -201,6 +201,7 @@ pre {
     overflow-x: auto;
 
     > code {
+        // font-size: 13px;
         border: 0;
         padding-right: 0;
         padding-left: 0;
