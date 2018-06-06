@@ -314,7 +314,8 @@ pre {
   padding-bottom: 5em; }
 
 .download {
-  padding: 10px; }
+  padding: 10px;
+  margin: 0 auto; }
 
 .authorKeyword {
   text-transform: uppercase;
@@ -410,7 +411,8 @@ pre {
   text-indent: 6px;
   font-family: 'Josefin Sans';
   font-weight: 300;
-  padding-top: 5em; }
+  padding-top: 5em;
+  text-align: center; }
 
 .page-title {
   text-transform: uppercase;
