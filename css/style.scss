@@ -3,7 +3,12 @@
 ---
 @charset "utf-8";
 
-
+// Adjustments.
+$code-color: #f8f8f8;
+$link-color: #d14;
+$l-grey-color:       #828282;
+$l-grey-color-light: lighten($l-grey-color, 40%);
+$l-grey-color-dark:  darken($l-grey-color, 25%);
 
 // Our variables
 $base-font-family: "PT Sans", Helvetica, Arial, sans-serif;
@@ -177,15 +182,20 @@ blockquote {
  */
 pre,
 code {
-    font-size: 15px;
+    font-size: 16px;
     border: 1px solid;
+    border-color: $l-grey-color-light;
+    background-color: $code-color;
     border-radius: 3px;
+    font-family: monospace
 }
 
+// Each line of code
 code {
     padding: 1px 5px;
 }
 
+// Code block
 pre {
     padding: 8px 12px;
     overflow-x: auto;
@@ -527,9 +537,14 @@ pre {
 .post-content {
   margin-bottom: $spacing-unit;
   padding-bottom: 3em !important;
-  p {
+  p, ul {
     // font-size: 1.5rem;
     font-size: 19px;
+    a {
+      color: $link-color !important;
+      border-bottom: 1px dotted #d14;
+      font-size: 19px;
+    }
   }
   h1 {
     font-size: 40px;
@@ -609,6 +624,7 @@ pre {
  * Syntax highlighting styles
  */
 .highlight {
+  background: #fff;
     @extend %vertical-rhythm;
 
     .c     { color: #998; font-style: italic } // Comment
@@ -671,3 +687,4 @@ pre {
     .vi    { color: #008080 } // Name.Variable.Instance
     .il    { color: #099 } // Literal.Number.Integer.Long
 }
+
