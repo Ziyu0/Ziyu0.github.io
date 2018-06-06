@@ -11,7 +11,7 @@ email: yuliazhouziyu@gmail.com
 description: "More Coding :cherry_blossom: More Love"
 baseurl: "" # the subpath of your site, e.g. /blog
 
-url: "http://yourdomain.com" # the base hostname & protocol for your site
+url: "https://ziyu0.github.io/" # the base hostname & protocol for your site
 twitter_username: 
 github_username:  Ziyu0
 paginate: 5
