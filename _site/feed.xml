@@ -5,9 +5,117 @@
     <description>More Coding :cherry_blossom: More Love</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 06 Jun 2018 00:00:16 -0500</pubDate>
-    <lastBuildDate>Wed, 06 Jun 2018 00:00:16 -0500</lastBuildDate>
+    <pubDate>Wed, 06 Jun 2018 00:35:28 -0500</pubDate>
+    <lastBuildDate>Wed, 06 Jun 2018 00:35:28 -0500</lastBuildDate>
     <generator>Jekyll v3.8.3</generator>
+    
+      <item>
+        <title>Understanding the Temporal Modeling Approaches for YouTube-8M Challenge</title>
+        <description>&lt;blockquote&gt;
+  &lt;p&gt;Get to know the amazing ideas proposed by the thrid place winner of the &lt;a href=&quot;https://www.kaggle.com/c/youtube8m&quot;&gt;Google Cloud &amp;amp; YouTube-8M Video Understanding Challenge&lt;/a&gt;.&lt;/p&gt;
+
+  &lt;p&gt;Please refer to their paper &lt;a href=&quot;https://arxiv.org/pdf/1707.04555.pdf&quot;&gt; Temporal Modeling Approaches for Large-scale Youtube-8M Video Understanding&lt;/a&gt; and &lt;a href=&quot;https://github.com/baidu/Youtube-8M&quot;&gt;code&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;strong&gt;Table of Contents:&lt;/strong&gt;
+&lt;!-- TOC --&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;#what-is-the-youtube-8m-challenge&quot;&gt;What is the YouTube-8M Challenge&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#temporal-modeling-approaches&quot;&gt;Temporal Modeling Approaches&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#two-stream-sequence-models&quot;&gt;Two-stream Sequence Models&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#fast-forward-sequence-models&quot;&gt;Fast-forward Sequence Models&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#temporal-residual-neural-networks&quot;&gt;Temporal Residual Neural Networks&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#references&quot;&gt;References&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;!-- /TOC --&gt;
+
+&lt;h1 id=&quot;what-is-the-youtube-8m-challenge&quot;&gt;What is the YouTube-8M Challenge&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://research.google.com/youtube8m/&quot;&gt;&lt;strong&gt;YouTube-8M&lt;/strong&gt;&lt;/a&gt; is a large scale public dataset released by Google containing over 7 million YouTube videos with a vocabulary of 4716 classes, with each video having 1.8 average number of tag classes. The task of the YouTube-8M challenge is to develop classification algorithms which accurately assign video-level labels using this dataset.&lt;/p&gt;
+
+&lt;h1 id=&quot;temporal-modeling-approaches&quot;&gt;Temporal Modeling Approaches&lt;/h1&gt;
+
+&lt;p&gt;The third place team proposed three temporal modeling approaches to tackle the task, namely:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Two-stream Sequence Models&lt;/li&gt;
+  &lt;li&gt;Fast-forward Sequence Models&lt;/li&gt;
+  &lt;li&gt;Temporal Residual Neural Networks&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;In the following sections, you’ll get to know:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Why do they propose this approach?&lt;/li&gt;
+  &lt;li&gt;What problems can this approach solve?&lt;/li&gt;
+  &lt;li&gt;What’s the basic architecture?&lt;/li&gt;
+  &lt;li&gt;What techniques do they use?&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;two-stream-sequence-models&quot;&gt;Two-stream Sequence Models&lt;/h2&gt;
+
+&lt;p&gt;One big problem is how to incorporate visual and audio representations. Their decision was to trained two models separately, one for the RGB visual representation and the other for the audo representation, each obtaining their own feature vectors. Then, the attended features will be concatenated and fed to two fully connected layers and a sigmoid level to perform video-level labeling.&lt;/p&gt;
+
+&lt;p&gt;The two models that they used to train the separate features are both bidirectional LSTM or GRU networks. LSTMs and GRUs are good at catching the connections in the time-series data, such as different frames of a video. To remedy the problem of information loss caused by long sequences,  they also added an attention layer after the LSTM or GRU networks.&lt;/p&gt;
+
+&lt;p&gt;The figure below shows a simplified pipeline:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/posts_imgs/youtube8m/two-stream.png&quot; alt=&quot;two-stream&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The following is the detailed illustration provided by their paper.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/posts_imgs/youtube8m/two-stream-full.png&quot; alt=&quot;two-stream-full&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;fast-forward-sequence-models&quot;&gt;Fast-forward Sequence Models&lt;/h2&gt;
+
+&lt;p&gt;What if we want to go deeper? An idea is that deeper network can outperform shallow ones. However, as the depth of the LSMT or GRU networks increases, optimization will become more difficult due to smaller and instable gradient, and the networks will be more vulnerable to overfitting.&lt;/p&gt;
+
+&lt;p&gt;The good news is one can add fast-forward connections to the sequence models, which provides a fast path for information to propagate. According to their paper, the fast-forward connections are added in between adjacent LSTM or GRU layers.&lt;/p&gt;
+
+&lt;p&gt;The figure below shows a simplified pipeline:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/posts_imgs/youtube8m/fast.png&quot; alt=&quot;fast&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The following is the detailed illustration provided by their paper.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/posts_imgs/youtube8m/fast-full.png&quot; alt=&quot;fast-full&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;temporal-residual-neural-networks&quot;&gt;Temporal Residual Neural Networks&lt;/h2&gt;
+
+&lt;p&gt;Another way to go deeper is to use ResNet (Residual Neural Networks). In the original &lt;a href=&quot;https://arxiv.org/pdf/1512.03385.pdf&quot;&gt;ResNet paper&lt;/a&gt;, the number of layers reaches 152 without overfitting!&lt;/p&gt;
+
+&lt;p&gt;The thrid place team also adapted the idea of ResNet into their approach. According to the paper, they propagate the concatenated data into a Temporal Resnet, which is a stack of 9 Temporal Resnet Blocks (TRB), and each TRB consists of two temporal convolutional layers (followed by batch norm and activation) and a shortcut connection. This Temporal Resnet is used to obtain more discriminative features, which will then be fed into a bi-directional LSTM / GRU model to perform video-level classification.&lt;/p&gt;
+
+&lt;p&gt;Take a loot at the architecture they proposed:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/posts_imgs/youtube8m/residual.png&quot; alt=&quot;residual&quot; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;references&quot;&gt;References&lt;/h1&gt;
+
+&lt;p&gt;[1] &lt;a href=&quot;https://arxiv.org/pdf/1707.04555.pdf&quot;&gt;https://arxiv.org/pdf/1707.04555.pdf&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;[2] &lt;a href=&quot;https://github.com/baidu/Youtube-8M&quot;&gt;https://github.com/baidu/Youtube-8M&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;[3] &lt;a href=&quot;https://arxiv.org/pdf/1512.03385.pdf&quot;&gt;https://arxiv.org/pdf/1512.03385.pdf&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;[4] &lt;a href=&quot;http://colah.github.io/posts/2015-08-Understanding-LSTMs/&quot;&gt;http://colah.github.io/posts/2015-08-Understanding-LSTMs/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;[5] &lt;a href=&quot;https://arxiv.org/pdf/1606.04199.pdf&quot;&gt;https://arxiv.org/pdf/1606.04199.pdf&lt;/a&gt;&lt;/p&gt;
+
+</description>
+        <pubDate>Wed, 06 Jun 2018 00:00:00 -0500</pubDate>
+        <link>http://localhost:4000/computervision/2018/06/06/youtube-8m.html</link>
+        <guid isPermaLink="true">http://localhost:4000/computervision/2018/06/06/youtube-8m.html</guid>
+        
+        
+        <category>ComputerVision</category>
+        
+      </item>
     
       <item>
         <title>Welcome to Gravity!</title>
