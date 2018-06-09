@@ -76,7 +76,7 @@ However, what actually happens is not that simple. `y` is not a "new" variable, 
 
 ```
 x  ⟶ memory location where value 3 is stored
-y  ↗︎
+y  ↗
 ```
 
 We can confirm this by checking their identities using the `id()` function. Only unique object or variable will have its own identities. Here we can see `x` and `y` have the same id, that being said, they are the same object:
@@ -138,18 +138,18 @@ This is the situation where we need "actual" copy, so one can **change one copy 
 
 
 
-# Shallow copy & Deep copy
+# Shallow Copy & Deep Copy
 
 Shallow copy and Deep copy are both used for the "actual" copy purpose.
 
-## Differences between Shallow copy and Deep copy
+## Differences between Shallow Copy and Deep Copy
 
 According to the Python [documentation](https://docs.python.org/2/library/copy.html), the difference between shallow and deep copying is only relevant for **compound objects**.
 
 - A **shallow copy** constructs a new compound object and then (to the extent possible) inserts **references** into it to the objects found in the original.
 - A **deep copy** constructs a new compound object and then, **recursively**, inserts **copies** into it of the objects found in the original.
 
-## How to Perform Shallow copy 
+## How to Perform Shallow Copy 
 
 There are three ways to perform a shallow copy:
 
@@ -199,7 +199,7 @@ For nested lists, we need to recursively copy it. In other words, we have to per
 
 
 
-## How to Perform Deep copy
+## How to Perform Deep Copy
 
 We'll need to use the `copy` module:
 
@@ -226,5 +226,8 @@ Now we're good to go 😄!
 
 
 
+# Reference
 
-
+1. [https://realpython.com/copying-python-objects/](https://realpython.com/copying-python-objects/)
+2. [https://www.programiz.com/python-programming/shallow-deep-copy](https://www.programiz.com/python-programming/shallow-deep-copy)
+3. [https://stackoverflow.com/questions/17873384/deep-copy-a-list-in-python](https://stackoverflow.com/questions/17873384/deep-copy-a-list-in-python)
