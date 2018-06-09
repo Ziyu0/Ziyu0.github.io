@@ -21,7 +21,7 @@ author: "Ziyu Zhou"
         - [Calling the  Factory Functions](#calling-the- factory-functions)
         - [Using List Slicing](#using-list-slicing)
     - [How to Perform Deep Copy](#how-to-perform-deep-copy)
-- [Reference](#reference)
+- [References](#references)
 
 <!-- /TOC -->
 
@@ -227,7 +227,7 @@ Now we're good to go 😄!
 
 
 
-# Reference
+# References
 
 1. [https://realpython.com/copying-python-objects/](https://realpython.com/copying-python-objects/)
 2. [https://www.programiz.com/python-programming/shallow-deep-copy](https://www.programiz.com/python-programming/shallow-deep-copy)
