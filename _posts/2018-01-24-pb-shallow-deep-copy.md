@@ -6,7 +6,7 @@ categories: ["PythonBasics"]
 author: "Ziyu Zhou"
 ---
 
-> Python basics for beginners: Understand the differences between shallow copy and deep copy, as well as when and how should we use them. 
+> Python basics: Understand the differences between shallow copy and deep copy, as well as when and how should we use them. 
 
 **Table of Contents:**
 <!-- TOC -->
