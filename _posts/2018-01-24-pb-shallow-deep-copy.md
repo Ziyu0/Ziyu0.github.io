@@ -6,7 +6,7 @@ categories: ["PythonBasics"]
 author: "Ziyu Zhou"
 ---
 
-> Python basics: Understand the differences between shallow copy and deep copy, as well as when and how should we use them. 
+> Python basics for beginners: Understand the differences between shallow copy and deep copy, as well as when and how should we use them. 
 
 **Table of Contents:**
 <!-- TOC -->
@@ -186,7 +186,7 @@ Perfect. However, what happens if our list is a nested one? For example:
 
 ```python
 >>> list1 = ['a','b',['ccc','ddd']]
->>> list2 = list1
+>>> list2 = list1[:]
 >>> list2[2][0] = 'E'
 >>> print(list2)
 ['a', 'b', ['E', 'ddd']]
