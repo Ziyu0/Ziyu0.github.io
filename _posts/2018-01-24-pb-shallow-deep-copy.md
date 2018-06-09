@@ -14,13 +14,14 @@ author: "Ziyu Zhou"
 - [Problem that You Might Not Expect](#problem-that-you-might-not-expect)
 - [How Assignments Work in Python](#how-assignments-work-in-python)
 - [What Will Happen If We Copy a List](#what-will-happen-if-we-copy-a-list)
-- [Shallow copy & Deep copy](#shallow-copy--deep-copy)
-    - [Differences between Shallow copy and Deep copy](#differences-between-shallow-copy-and-deep-copy)
-    - [How to Perform Shallow copy](#how-to-perform-shallow-copy)
+- [Shallow Copy & Deep Copy](#shallow-copy--deep-copy)
+    - [Differences between Shallow Copy and Deep Copy](#differences-between-shallow-copy-and-deep-copy)
+    - [How to Perform Shallow Copy](#how-to-perform-shallow-copy)
         - [Using the `copy` Module](#using-the-copy-module)
         - [Calling the  Factory Functions](#calling-the- factory-functions)
         - [Using List Slicing](#using-list-slicing)
-    - [How to Perform Deep copy](#how-to-perform-deep-copy)
+    - [How to Perform Deep Copy](#how-to-perform-deep-copy)
+- [Reference](#reference)
 
 <!-- /TOC -->
 
