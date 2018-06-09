@@ -73,14 +73,14 @@ Before we talk about copies, let's quickly go over how assignments work in Pytho
 5
 ```
 
-However, what actually happens is not that simple. `y` is not a "new" variable, because Python will let it points to the memory location of `x`, which means that `y` and `x` are just two identifiers of the same variable whose value is 3. The figure below shows how it works:
+However, what actually happens is not that simple. `y` is not a "new" variable, because Python will let it points to the memory location of `x`, which means that `y` and `x` are just two identifiers of the same variable whose value is 5. The figure below shows how it works:
 
 ```
 x  ⟶ memory location where value 3 is stored
 y  ↗
 ```
 
-We can confirm this by checking their identities using the `id()` function. Only unique object or variable will have its own identities. Here we can see `x` and `y` have the same id, that being said, they are the same object:
+We can confirm this by checking their identities using the `id()` function. Only unique object or variable will have its own identity. Here we can see that `x` and `y` have the same id, that being said, they are the same object:
 
 ```python
 >>> id(x)
@@ -133,7 +133,7 @@ But this is problematic:
 ['c', 'b']
 ```
 
-This is because changing a value of a list, which is a **compound object** (objects that contain other objects, like lists that contain strings), will not give this list a new memory location. That is, aftering executing `list_b[0] = 'c'`, `list_b` still points to the same location as `list_a`.
+This is because changing a value of a list, which is a **compound object** (objects that contain other objects, like lists that contain strings), will not give this list a new memory location. That is, after executing `list_b[0] = 'c'`, `list_b` still points to the same location as `list_a`.
 
 This is the situation where we need "actual" copy, so one can **change one copy without changing the other**.
 
